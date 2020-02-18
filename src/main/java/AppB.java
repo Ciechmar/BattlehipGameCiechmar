@@ -1,5 +1,5 @@
 import java.util.Scanner;
-//TODO:Rozdział na metody
+//TODO:Rozdział na metody i te procenty
 //
 public class AppB {
     public static void main(String[] args) {
@@ -8,6 +8,7 @@ public class AppB {
         int countHitMy = 0;
         int countHit = 0;
         int howManyShots = 0;
+
 //        Tutaj deklaruję swoją tablicę
 
         byte board[][] = new byte[10][10];
@@ -110,7 +111,6 @@ public class AppB {
             char shotHorizontalLetter = shotBig.charAt(1);
             int len = shotBig.length();
              if ( len == 3) {
-                 char ifTen = shotBig.charAt(2); /* Bedzie sprawdzac czy wstawiono zero jako 3 znak, czyli strzal w 10)*/
                  shotHorizontal = 10;
              } else {
                  shotHorizontal = Character.getNumericValue(shotHorizontalLetter);
