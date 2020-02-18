@@ -1,9 +1,6 @@
 import java.util.Scanner;
-//TODO: Strzały na pozycji 10!!,
-// Dolosowanie brakującego statku (gdy wylosował te same)- następna pętla... łeeeeee :(;
-// Rozdział na metody
+//TODO:Rozdział na metody
 //
-
 public class AppB {
     public static void main(String[] args) {
 //Deklaracje na początku- troche wieje Pascalem ;)
@@ -68,7 +65,6 @@ public class AppB {
             while (randomShips < ilosc) {
                 int s = RandomShot.RandomShot();
                 int h = RandomShot.RandomShot();
-                System.out.println("Wylosowało "+ s + h +" i jest tam " + board[s][h]);
                 if (board[s][h] == 0) {
                 board[s][h] = 1;
                 randomShips++;
@@ -76,41 +72,15 @@ public class AppB {
             }
         }
 
-
-
-
-//            else {
-//            //Wstawiam losowo statki
-//            System.out.println("No to losowanko");
-//            System.out.println("Ile ma być statków?");
-//            int ilosc = scanner.nextInt();
-//            for (int i = 0; i < ilosc; i++) {
-//                board[RandomShot.RandomShot()][RandomShot.RandomShot()] = 1;
-//
-//            }
-//        }
-
 //Sprawdzenie ile jest podanych statków
 
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 countHitMy = countHitMy + board[i][j];
-
-
             }
-
         }
         System.out.println("ilosc "+countHitMy);
 // Koniec mojej tablicy
-
-
-
-
-
-
-
-
-
 
 // Tutaj robimy tablice ze statkami usera
 
@@ -120,14 +90,11 @@ public class AppB {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 userBoard[i][j] = 0;
-
             }
         }
 //  Koniec tablicy usera
 
-
 //Zapętalmy by grać aż countHit =countHitMy -> tyle jest statków na tablicy, czyli wszystkie statki będą zestrzelone
-
 
         while (countHit < countHitMy ) {
             System.out.printf("Jest %d statków do zbicia\n", countHitMy - countHit);
@@ -145,7 +112,6 @@ public class AppB {
                     } else if (userBoard[i][j] == 1) {
                         System.out.print("[X]");
                     } else System.out.print("[*]");
-
                 }
                 System.out.println();
             }
@@ -157,10 +123,13 @@ public class AppB {
             String shot = scanner.next();
             String shotBig = shot.toUpperCase();
             char shotVerticalLetter = shotBig.charAt(0);
-
             char shotHorizontalLetter = shotBig.charAt(1);
-            shotHorizontal = Character.getNumericValue(shotHorizontalLetter);
-
+            char ifTen = shotBig.charAt(2); /* Bedzie sprawdzac czy wstawiono zero jako 3 znak, czyli strzal w 10)*/
+             if ( ifTen == '0') {
+                 shotHorizontal = 10;
+             } else {
+                 shotHorizontal = Character.getNumericValue(shotHorizontalLetter);
+             }
 
 // Zmiana wyboru na pozycje w postaci int - Przy okazji nie trzeba potem odejmować 1 od pozycji w tablicy
             switch (shotVerticalLetter) {
@@ -202,7 +171,6 @@ public class AppB {
                     break;
             }
 
-
             if (shotHorizontal != 99) {
 
                 System.out.printf("Wybrałeś %s %s \n", shotVerticalLetter, shotHorizontal);
@@ -219,9 +187,7 @@ public class AppB {
                     countHit++;
                 }
             }
-
         }
-
 //        double s = countHitMy;
 //        double h = howManyShots;
 //        System.out.println("Zmienne s i h to:"+s+h);
@@ -229,5 +195,4 @@ public class AppB {
         System.out.printf("Oddałeś %d strzałów. \nDzięki za grę", howManyShots);
 //        System.out.printf("Twoja celność to: %.2f", percent);
     }
-
 }
