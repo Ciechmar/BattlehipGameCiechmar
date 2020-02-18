@@ -68,13 +68,10 @@ public class AppB {
             while (randomShips < ilosc) {
                 int s = RandomShot.RandomShot();
                 int h = RandomShot.RandomShot();
-                System.out.println("Wylosowało "+s+h+" i jest tam " + board[s][h]);
+                System.out.println("Wylosowało "+ s + h +" i jest tam " + board[s][h]);
                 if (board[s][h] == 0) {
                 board[s][h] = 1;
                 randomShips++;
-                }
-                else { --ilosc;
-                    System.out.println("Odjelam");
                 }
             }
         }
@@ -229,7 +226,7 @@ public class AppB {
 //        double h = howManyShots;
 //        System.out.println("Zmienne s i h to:"+s+h);
 //        double percent = s*100.0/h;
-        System.out.printf("Oddałeś %d strzałów. Dzięki za grę", howManyShots);
+        System.out.printf("Oddałeś %d strzałów. \nDzięki za grę", howManyShots);
 //        System.out.printf("Twoja celność to: %.2f", percent);
     }
 
