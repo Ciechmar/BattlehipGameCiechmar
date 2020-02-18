@@ -27,7 +27,8 @@ public class AppB {
         System.out.println("Masz do wyboru dwa warianty gry:\n" +
                 "1)Moja tablica- klasyczna, 1x 4masztowiec, 2x 3masztowce idt\n" +
                 "2)Losowa. Ty podajesz ile ma być jednomasztowców\n" +
-                "3) Wyjście z gry. \nCo wybierasz? 1,2 czy 3?");
+                "3) Wyjście z gry (W każdej chwili możesz też wpisać '99' i wyjdziesz" +
+                " \nCo wybierasz? 1,2 czy 3?");
         byte option = scanner.nextByte();
 
         if (option == 1 ) {
@@ -64,17 +65,16 @@ public class AppB {
             System.out.println("Ile ma być statków?");
             int ilosc = scanner.nextInt();
             int randomShips = 0;
-            while (randomShips <= ilosc-1) {
-                board[RandomShot.RandomShot()][RandomShot.RandomShot()] = 1;
-
-                //Sprawdzenie ile jest podanych statków
-                for (int i = 0; i < 10; i++) {
-                    for (int j = 0; j < 10; j++) {
-                        randomShips = randomShips + board[i][j];
-                        System.out.println("ilosc randomow " + randomShips);
-
-                    }
-
+            while (randomShips < ilosc) {
+                int s = RandomShot.RandomShot();
+                int h = RandomShot.RandomShot();
+                System.out.println("Wylosowało "+s+h+" i jest tam " + board[s][h]);
+                if (board[s][h] == 0) {
+                board[s][h] = 1;
+                randomShips++;
+                }
+                else { --ilosc;
+                    System.out.println("Odjelam");
                 }
             }
         }
@@ -89,6 +89,7 @@ public class AppB {
 //            int ilosc = scanner.nextInt();
 //            for (int i = 0; i < ilosc; i++) {
 //                board[RandomShot.RandomShot()][RandomShot.RandomShot()] = 1;
+//
 //            }
 //        }
 
@@ -97,11 +98,12 @@ public class AppB {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 countHitMy = countHitMy + board[i][j];
-                System.out.println("ilosc"+countHitMy);
+
 
             }
 
         }
+        System.out.println("ilosc "+countHitMy);
 // Koniec mojej tablicy
 
 
