@@ -12,14 +12,6 @@ public class AppB {
 
         byte board[][] = new byte[10][10];
 
-        //Najpierw zapełniam tablice zerami
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                board[i][j] = 0;
-
-            }
-        }
-
         System.out.println("Witaj w grze w Statki.");
         System.out.println("Masz do wyboru dwa warianty gry:\n" +
                 "1)Moja tablica- klasyczna, 1x 4masztowiec, 2x 3masztowce idt\n" +
@@ -85,14 +77,6 @@ public class AppB {
 // Tutaj robimy tablice ze statkami usera
 
         short userBoard[][] = new short[10][10];
-
-//Zapełniam tablice zerami, bo na poczatku nie ma żadnych strzałów i statków
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                userBoard[i][j] = 0;
-            }
-        }
-//  Koniec tablicy usera
 
 //Zapętalmy by grać aż countHit =countHitMy -> tyle jest statków na tablicy, czyli wszystkie statki będą zestrzelone
 
