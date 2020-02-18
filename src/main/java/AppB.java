@@ -117,15 +117,16 @@ public class AppB {
             }
 
             int shotVertical = 0;
-            int shotHorizontal = 0;
+            int shotHorizontal;
 
             System.out.println(" \n\nPodaj strzał");
             String shot = scanner.next();
             String shotBig = shot.toUpperCase();
             char shotVerticalLetter = shotBig.charAt(0);
             char shotHorizontalLetter = shotBig.charAt(1);
-            char ifTen = shotBig.charAt(2); /* Bedzie sprawdzac czy wstawiono zero jako 3 znak, czyli strzal w 10)*/
-             if ( ifTen == '0') {
+            int len = shotBig.length();
+             if ( len == 3) {
+                 char ifTen = shotBig.charAt(2); /* Bedzie sprawdzac czy wstawiono zero jako 3 znak, czyli strzal w 10)*/
                  shotHorizontal = 10;
              } else {
                  shotHorizontal = Character.getNumericValue(shotHorizontalLetter);
