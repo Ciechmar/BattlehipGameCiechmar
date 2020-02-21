@@ -24,10 +24,6 @@ public class ShotToCords {
             case 'G':
                 return 6;
 
-            case 'H':
-                return 7;
-
-
 
             default:
                 throw new IllegalStateException("Podałeś strzał z poza tablicy " + shot);

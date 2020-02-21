@@ -3,14 +3,10 @@ import java.util.Scanner;
 //
 public class AppB {
     public static void main(String[] args) {
-//Deklaracje na początku- troche wieje Pascalem ;)
+
         Scanner scanner = new Scanner(System.in);
-        int countHitMy = 0;
-        int countHit = 0;
-        int howManyShots = 0;
 
 //        Tutaj deklaruję swoją tablicę
-
         byte board[][] = new byte[10][10];
 
         System.out.println("Witaj w grze w Statki.");
@@ -20,6 +16,11 @@ public class AppB {
                 "3) Wyjście z gry (W każdej chwili możesz też wpisać '99' i wyjdziesz" +
                 " \nCo wybierasz? 1,2 czy 3?");
         byte option = scanner.nextByte();
+
+        int countHit = 0;
+        int howManyShots = 0;
+        int countHitMy = 0;
+
 
         if (option == 1 ) {
             //Wstawiam swoje statki
@@ -59,8 +60,8 @@ public class AppB {
                 int s = RandomShot.RandomShot();
                 int h = RandomShot.RandomShot();
                 if (board[s][h] == 0) {
-                board[s][h] = 1;
-                randomShips++;
+                    board[s][h] = 1;
+                    randomShips++;
                 }
             }
         }
