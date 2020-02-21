@@ -16,7 +16,6 @@ public class App2Players {
         for (int i = 0; i <50 ; i++) {
             System.out.println();
         }
-
             String shot1 = StringToShot.stringToShot(0, 1, ships1);
             String shot2 = StringToShot.stringToShot(3, 4, ships1);
             String shot3 = StringToShot.stringToShot(6, 7, ships1);
@@ -50,8 +49,6 @@ public class App2Players {
         byte hitB = 0;
         while (hit1 < 10 && hitB < 10) {
 
-
-
             System.out.println("GRACZ 1\n");
             System.out.println("   A  B  C  D  E  F  G");
             for (int i = 0; i < 7; i++) {
@@ -82,9 +79,6 @@ public class App2Players {
                 userBoard1[shotNumber - 1][ShotToCords.shotToCords(shot)] = 3;
 
             }
-
-
-
             System.out.println("GRACZ 2\n");
             System.out.println("   A  B  C  D  E  F  G");
             for (int i = 0; i < 7; i++) {
@@ -113,10 +107,7 @@ public class App2Players {
             } else {
                 System.out.println("Pudło\n");
                 userBoardB[shotNumberB - 1][ShotToCords.shotToCords(shotB)] = 3;
-
             }
-
-
         }
 
         if (hit1 == 10 ) {
