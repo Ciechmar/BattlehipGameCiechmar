@@ -43,8 +43,8 @@ public class App2Players {
 //            System.out.println("Pierwszy strzał to " + shot1);
 //        }
 
-        byte userBoard1[][] = new byte[7][7];
-        byte userBoardB[][] = new byte[7][7];
+        byte[][] userBoard1 = new byte[7][7];
+        byte[][] userBoardB = new byte[7][7];
         byte hit1 = 0;
         byte hitB = 0;
         while (hit1 < 10 && hitB < 10) {
@@ -96,8 +96,8 @@ public class App2Players {
             String shotB= scanner.nextLine();
             shotB = shotB.toUpperCase();
 
-            Byte b = HitorMiss.hitOrMiss(shotB, shot21, shot22, shot23, shot24, shot25, shot26, shot27, shot28, shot29, shot210);
-            hitB = (byte) (hitB+b); /* Czemu tu wymusza rzutowanie? */
+            byte b = HitorMiss.hitOrMiss(shotB, shot21, shot22, shot23, shot24, shot25, shot26, shot27, shot28, shot29, shot210);
+            hitB = (byte) (hitB+b);
             char shotNumB = shotB.charAt(1);
             byte shotNumberB= (byte) Character.getNumericValue(shotNumB);
 
