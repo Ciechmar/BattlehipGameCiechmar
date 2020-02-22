@@ -66,8 +66,8 @@ public class App2Players {
             String shot = scanner.nextLine();
             shot = shot.toUpperCase();
 
-            Byte a = HitorMiss.hitOrMiss(shot, shot1, shot2, shot3, shot4, shot5, shot6, shot7, shot8, shot9, shot10);
-            hit1 = (byte) (hit1+a); /* Czemu tu wymusza rzutowanie? */
+            byte a = HitorMiss.hitOrMiss(shot, shot1, shot2, shot3, shot4, shot5, shot6, shot7, shot8, shot9, shot10);
+            hit1 = (byte) (hit1+a); /* Czemu tu wymusza rzutowanie? -> W celu zabezpieczniea się, żeby nie wyszło za przedział liczbowy byte */
             char shotNum = shot.charAt(1);
             byte shotNumber= (byte) Character.getNumericValue(shotNum);
 
