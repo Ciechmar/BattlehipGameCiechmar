@@ -1,4 +1,5 @@
 import java.util.Random;
+//ToDo:Obsługa exeptiona, gdy statek poza tab-> zrób tablice 10x10
 
 public class AppRandom {
 
@@ -7,10 +8,17 @@ public class AppRandom {
         Random generator = new Random();
 //        Tablica jest o 3 wieksza by nie wyrzucało exeptiona ze poza skalą,
 //        a na pozycjach 10 wsadzone 9, by przy losowaniu położenia nie wsadzało statku poza tablice 10x10
-        byte [][]board = new byte[13][13];
-        for (int i = 0; i < 10; i++) {
-            board[i][10]=9;
-            board[10][i]=9;
+        byte [][]board = new byte[17][17];
+        for (int i = 3; i < 14; i++) {
+            board[i][14] = 9;
+            board[14][i] = 9;
+
+        }
+
+        for (int i = 3; i < 14; i++) {
+            board[i][3] = 9;
+            board[3][i] = 9;
+
         }
 
 //Wstawiam losowo statki
@@ -23,6 +31,9 @@ public class AppRandom {
 
             int i = generator.nextInt(9);
             int j = generator.nextInt(9);
+
+            i = i+4;
+            j= j+4;
 
             System.out.println("Miejsce w tablicy to " + i + j);
 
@@ -44,13 +55,28 @@ public class AppRandom {
                         break;
                     }
                 }
-
+//Jeżeli putShip =4 (czyli 4 miejsca były wolne, to  można postawić statek
                 switch (putShip) {
                     case 4:
                         board[i][j] = 1;
                         board[i + 1][j] = 1;
                         board[i + 2][j] = 1;
                         board[i + 3][j] = 1;
+                        board[i - 1][j] = 9;
+                        board[i + 4][j] = 9;
+                        board[i][j - 1] = 9;
+                        board[i][j + 1] = 9;
+                        board[i + 1][j + 1] = 9;
+                        board[i + 1][j - 1] = 9;
+                        board[i + 2][j + 1] = 9;
+                        board[i + 2][j - 1] = 9;
+                        board[i + 3][j + 1] = 9;
+                        board[i + 3][j - 1] = 9;
+                        board[i + 4][j + 1] = 9;
+                        board[i + 4][j - 1] = 9;
+                        board[i - 1][j + 1] = 9;
+                        board[i - 1][j - 1] = 9;
+
                         pozytion = 1;
                         break;
                     default:
@@ -80,6 +106,27 @@ public class AppRandom {
                         board[i][j + 1] = 1;
                         board[i][j + 2] = 1;
                         board[i][j + 3] = 1;
+
+
+                        board[i - 1][j] = 9;
+                        board[i + 1][j] = 9;
+                        board[i][j - 1] = 9;
+//                        board[i][j + 1] = 9;
+                        board[i + 1][j + 1] = 9;
+                        board[i + 1][j + 2] = 9;
+                        board[i + 1][j + 3] = 9;
+                        board[i + 1][j + 4] = 9;
+
+                        board[i - 1][j + 1] = 9;
+                        board[i - 1][j + 2] = 9;
+                        board[i - 1][j + 3] = 9;
+                        board[i - 1][j + 4] = 9;
+
+                        board[i][j + 4] = 9;
+                        board[i - 1][j - 1] = 9;
+                        board[i + 1][j - 1] = 9;
+
+
                         pozytion = 1;
                         break;
                     default:
@@ -95,9 +142,9 @@ public class AppRandom {
 
 
         System.out.println("   A  B  C  D  E  F  G  H  I  J");
-        for (int i = 0; i < 10; i++) {
-            System.out.print(i + 1 + " ");
-            for (int j = 0; j < 10; j++) {
+        for (int i =4; i < 14; i++) {
+            System.out.print(i -3 + " ");
+            for (int j = 4; j < 14; j++) {
                 if (board[i][j] == 0) {
                     System.out.print("[ ]");
                 } else if (board[i][j] == 1) {
