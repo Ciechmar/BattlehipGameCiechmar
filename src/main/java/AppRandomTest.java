@@ -74,8 +74,8 @@ public class AppRandomTest {
                     if (isSpotFree == iloscMasztow) {
                         for (int m = 0; m < iloscMasztow; m++) {
                             board[i + m][j] = 1;
-//                            board[i + m][j - 1] = 9;
-//                            board[i + m][j + 1] = 9;
+                            board[i + m][j - 1] = 9;
+                            board[i + m][j + 1] = 9;
                             board[i - 1][j] = 9;
 //                            board[i - 1][j - 1] = 9;
 //                            board[i - 1][j + 1] = 9;
@@ -98,8 +98,8 @@ public class AppRandomTest {
                     }
                     for (int m = 0; m < iloscMasztow; m++) {
                         board[i][j + m] = 1;
-//                        board[i + 1][j + m] = 9;
-//                        board[i - 1][j + m] = 9;
+                        board[i + 1][j + m] = 9;
+                        board[i - 1][j + m] = 9;
 //
                         board[i][j + iloscMasztow] = 9;
 //                        board[i - 1][j + iloscMasztow] = 9;
