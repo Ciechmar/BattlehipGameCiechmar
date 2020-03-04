@@ -47,78 +47,51 @@ public class AppRandomTest {
                 case 8:
                 case 9: iloscMasztow = 1; break;
             }
-//Wstawiam losowo statki
-//        0- brak statku
-//        1- jest statek
-//        9- pole niedozwolone
-
-/*        Statki beda miały swoje Id:
-            Id = 0 -> 4masztowiec
-            Id = 1 -> 3masztowiec
-            Id = 2 -> 3masztowiec
-            Id = 3 -> 2masztowiec
-            Id = 4 -> 2masztowiec
-            Id = 5 -> 2masztowiec
-            Id = 6 -> 1masztowiec
-            Id = 7 -> 1masztowiec
-            Id = 8 -> 1masztowiec
-            Id = 9 -> 1masztowiec
- */
-
 
             byte pozytion = 0;
 //        Zmienne czy stoi statek:
-            int l = 0;
+            int isSpotFree = 0;
             do {
-//Losowanie 4 masztowca
-
                 int i = generator.nextInt(9);
                 int j = generator.nextInt(9);
 
                 i = i + 4;
                 j = j + 4;
 
-
 //        Losowanie kierunku:
                 int k = generator.nextInt(2);
                 if (k == 1) { /*Ułożenie pionowe*/
+                    
+                    while (isSpotFree < iloscMasztow) {
 
-                    int putShip = 0;
-                    while (l < iloscMasztow) {
-
-                        if (board[i + l][j] == 0) {
-                            l++;
-                            putShip++;
+                        if (board[i + isSpotFree][j] == 0) {
+                            isSpotFree++;
                         } else {
                             break;
                         }
                     }
 //Jeżeli putShip =4 (czyli 4 miejsca były wolne, to  można postawić statek
-                    if (putShip == iloscMasztow) {
+                    if (isSpotFree == iloscMasztow) {
                         for (int m = 0; m < iloscMasztow; m++) {
                             board[i + m][j] = 1;
 //                            board[i + m][j - 1] = 9;
 //                            board[i + m][j + 1] = 9;
-//                            board[i - 1][j] = 9;
+                            board[i - 1][j] = 9;
 //                            board[i - 1][j - 1] = 9;
 //                            board[i - 1][j + 1] = 9;
-//                            board[i + iloscMasztow][j] = 9;
+                            board[i + iloscMasztow][j] = 9;
 //                            board[i + iloscMasztow][j - 1] = 9;
 //                            board[i + iloscMasztow][j + 1] = 9;
                         }
-
                         pozytion = 1;
                     }
 
                 } else { /*ułożenie poziome*/
 
-//                int l = 0;
-                    int putShip = 0;
-                    while (l < iloscMasztow) {
+                    while (isSpotFree < iloscMasztow) {
 
-                        if (board[i][j + l] == 0) {
-                            l++;
-                            putShip++;
+                        if (board[i][j + isSpotFree] == 0) {
+                            isSpotFree++;
                         } else {
                             break;
                         }
@@ -128,16 +101,15 @@ public class AppRandomTest {
 //                        board[i + 1][j + m] = 9;
 //                        board[i - 1][j + m] = 9;
 //
-//                        board[i][j + iloscMasztow] = 9;
+                        board[i][j + iloscMasztow] = 9;
 //                        board[i - 1][j + iloscMasztow] = 9;
 //                        board[i + 1][j + iloscMasztow] = 9;
-//                        board[i][j - 1] = 9;
+                        board[i][j - 1] = 9;
 //                        board[i - 1][j - 1] = 9;
 //                        board[i + 1][j - 1] = 9;
                     }
 
-                    if (putShip == iloscMasztow) {
-
+                    if (isSpotFree == iloscMasztow) {
                         pozytion = 1;
                     }
                 }
@@ -152,22 +124,22 @@ public class AppRandomTest {
 
 
 
-
-            System.out.println("   A  B  C  D  E  F  G  H  I  J");
-            for (int i =4; i < 14; i++) {
-                System.out.print(i -3 + " ");
-                for (int j = 4; j < 14; j++) {
-                    if (board[i][j] == 0) {
-                        System.out.print("[ ]");
-                    } else if (board[i][j] == 1) {
-                        System.out.print("[X]");
-                    } else System.out.print("[*]");
-                }
-                System.out.println();
-            }
-
-
         }
+
+        System.out.println("   A  B  C  D  E  F  G  H  I  J");
+        for (int i =4; i < 14; i++) {
+            System.out.print(i -3 + " ");
+            for (int j = 4; j < 14; j++) {
+                if (board[i][j] == 0) {
+                    System.out.print("[ ]");
+                } else if (board[i][j] == 1) {
+                    System.out.print("[X]");
+                } else System.out.print("[*]");
+            }
+            System.out.println();
+        }
+
+
 
 
 
