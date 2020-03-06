@@ -80,7 +80,7 @@ public class AppB {
 
                 int id;
                 int whitchShip = 0;
-                for (int n = 0; n < 9 ; n++) {
+                for (int n = 0; n < 10 ; n++) {
                     id = n;
                     switch (id){
                         case 0: whitchShip = 4; break;
@@ -154,14 +154,19 @@ public class AppB {
                         for (int l = 4; l <14 ; l++) {
                             for (int m = 4; m <14 ; m++) {
                                 if ( board[i][j] == 1 ) {
-                                    if (board [i + 1][j] == 0) { board [i + 1][j] = 9;}
+                                    if (board [i + 1][j] == 0) {board [i + 1][j] = 9;}
                                     if (board [i - 1][j] == 0) {board [i - 1][j] = 9;}
+
                                     if (board [i][j + 1] == 0) {board [i][j + 1] = 9;}
                                     if (board [i][j - 1] == 0) {board [i][j - 1] = 9;}
+
+                                    if (board [i + 1][j + 1] == 0) {board [i + 1][j] = 9;}
+                                    if (board [i - 1][j - 1] == 0) {board [i - 1][j] = 9;}
+                                    if (board [i + 1][j - 1] == 0) {board [i - 1][j] = 9;}
+                                    if (board [i - 1][j + 1] == 0) {board [i - 1][j] = 9;}
                                 }
                             }
                         }
-
 
                     } while (varForPuttingShip != 1);
 
